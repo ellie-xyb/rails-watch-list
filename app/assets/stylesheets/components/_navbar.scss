@@ -10,3 +10,21 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-brand i {
+  font-size: 1.4em;
+}
+
+.navbar-bootstrap {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  opacity: 0.9;
+  & i {
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

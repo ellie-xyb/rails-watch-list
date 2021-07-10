@@ -1,14 +1,16 @@
-<div class="container mf-3">
-  <div class="row">
+<div class="container" style="margin-top: 130px;">
+  <%= link_to lists_path(@list) do %>
+    <h4 style="color:darkgrey">⇤ lists</h4>
+  <% end %>
+</div>
+<div class="container" style="margin-top: 70px">
+  <div class="row justify-content-center">
     <div class="col-10">
       <%= simple_form_for(@list) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :bg_url %>
+        <%= f.input :name, label: 'List name' %>
+        <%= f.input :bg_url, label: 'Customer background image', placeholder: 'https://source.unsplash.com/random', input_html: {value: f.object.bg_url || 'https://source.unsplash.com/random'} %>
         <%= f.submit "Add", class: "btn btn-primary" %>
       <% end %>
-      <br>
-      <%= link_to "Back", lists_path, class: "btn btn-outline-warning" %>
     </div>
   </div>
 </div>
-

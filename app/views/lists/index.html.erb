@@ -1,24 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80);">
-  <div class="container">
-    <h1>MovieList <strong>brings you chill</strong>!</h1>
-    <p>You work hard, it's okay to take some rest</p>
-    <%= link_to "Add a new list", new_list_path, class: "btn btn-primary"  %>
-  </div>
-</div>
-<div class="container m-4">
-  <div class="row">
-    <div class="col-10">
-      <div class="cards">
-        <% @lists.each do |list| %>
-          <%= link_to list_path(list) do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.bg_url %>)">
-              <%= list.name %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "shared/fullbg" %>
+<%= render "shared/list-cards" %>
+
+
+
 
 

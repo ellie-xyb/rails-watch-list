@@ -1,55 +1,100 @@
-.card-category {
+.display-card {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 380px;
+  min-width: 200px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, .3);
+  transition: filter .25s ease-in-out;
+  text-decoration: none;
+  position: relative;
+  &:hover {
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, .3);
+  }
+  &:hover .display-card-info {
+    transform: translatey(-2px);
+    transition: 0.25s ease-in-out;
+  }
+  & .display-delete-mark {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+  }
+}
+
+.display-card-info h5 {
+  opacity: 0.8;
+}
+
+.movie-card {
+  overflow: hidden;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
+.movie-card-img {
+  background-size: cover;
+  background-position: 10% center;
+  height: 280px;
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  border-radius: 3px;
+  & i {
+    padding-left: 395px;
+    color: rgba(355,355,355,0.8);
+    position: absolute;
+    right: 8px;
+    top: 8px;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
+.movie-card > img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
+.movie-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.movie-card p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+
+.movie-card .movie-card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.movie-card-infos .movie-rating {
+  position: absolute;
+  right: 10px;
+  top: -20px;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding-top: 7px;
+  font-size: 1.4em;
 }
