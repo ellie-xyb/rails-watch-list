@@ -1,0 +1,8 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.bg_url %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <a class="btn btn-flat" href="#">Add a movie</a>
+    <%= link_to "Back", lists_path, class: "btn btn-outline-warning" %>
+  </div>
+</div>
+

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class List < ApplicationRecord
   validates :name, uniqueness: true, presence: true
   has_many :bookmarks, dependent: :destroy
