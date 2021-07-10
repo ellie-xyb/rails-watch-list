@@ -16,6 +16,10 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
   private
 
   def find_list
