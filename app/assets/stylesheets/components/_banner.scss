@@ -5,14 +5,20 @@
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  position: relative;
   // min-height: 500px;
   & .fullbg-container {
     padding-top: 35vh;
     padding-left: 10vw;
     color: white;
   }
-  & p {
+  & h4 {
     opacity: 0.8;
+  }
+
+  & .btn-position {
+    position: absolute;
+    top: 55vh;
   }
 }
 
