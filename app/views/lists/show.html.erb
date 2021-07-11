@@ -1,6 +1,6 @@
 <div class="list-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.bg_url %>);">
   <div class="container">
-    <h1 class="mb-3"><%= @list.name %></h1>
+    <h1 class="mb-3"><%= @list.name.capitalize %></h1>
     <%= link_to "Lists<<", lists_path, class: "btn btn-outline-warning mr-2" %>
     <%= link_to "➕ Movie",  new_list_bookmark_path(@list), class: "btn btn-info" %>
   </div>

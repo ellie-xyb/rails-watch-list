@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class List < ApplicationRecord
-  validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness: { case_sensitive: false }
+  validates :name, presence: true
   has_many :bookmarks, dependent: :destroy
   has_many :movies, through: :bookmarks
 end

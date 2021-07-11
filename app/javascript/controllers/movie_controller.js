@@ -14,21 +14,17 @@ import { Controller } from 'stimulus';
 // }
 
 export default class extends Controller {
-  static targets = ["title", "overview", "rating", "toggle"];
-  connect() {
-    console.log(this.cardTarget);
-  }
+  static targets = ["title", "overview", "rating", "toggle", "star"];
+
   show(event) {
     this.toggleTarget.style.display = " none";
     const title = event.currentTarget.dataset.title;
     const overview = event.currentTarget.dataset.overview;
-    const string = event.currentTarget.dataset.rating;
-    const rating = parseInt(string, 10);
+    const rating = event.currentTarget.dataset.rating;
 
     this.titleTarget.innerHTML = title;
-    let star = this.ratingTarget.innerHTML;
-    this.ratingTarget.innerHTML = star + rating;
-    this.ratingTarget.style.display = "block";
+    this.starTarget.style.display = "block";
+    this.ratingTarget.innerHTML = rating;
     this.overviewTarget.innerHTML = overview;
   };
 }

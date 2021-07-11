@@ -35,12 +35,12 @@ document.addEventListener('turbolinks:load', () => {
     const element = document.querySelector('.typed-js');
     if (element) {
       new Typed('.typed-js', {
-        strings: ['^800 All of your favorites in one place. ^600\n', 'Drama', 'Classic', 'Comedy', 'Action', 'Romantic', 'Thriller', 'Horror', 'Comedy', 'Sci-fi', 'Slasher ^70 ... ^400'],
+        strings: ['^800 All of your favorites in one place. ^600\n', 'Drama', 'Classic', 'Comedy', 'Action', 'Romantic', 'Thriller', 'Horror', 'Comedy', 'Sci-fi', 'Slasher ^70 ...', '🍿'],
         // strings: ['Drama', 'Classic', 'Comedy', 'Action', 'Romantic', 'Thriller', 'Horror', 'Slasher'],
         typeSpeed: 30,
         backSpeed: 16,
         loop: true,
-        loopCount: Infinity,
+        loopCount: 1,
         showCursor: false,
       });
     }
