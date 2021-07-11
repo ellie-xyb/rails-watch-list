@@ -8,8 +8,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 if Rails.env.develoment?
-  Movie.destroy_all
   List.destroy_all
+  Movie.destroy_all
+  Bookmark.destroy_all
 end
 
 Movie.create(title: 'Wonder Woman 1984',

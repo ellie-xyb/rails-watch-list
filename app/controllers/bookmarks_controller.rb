@@ -2,7 +2,7 @@
 
 class BookmarksController < ApplicationController
   before_action :set_list, only: %i[new create]
-  before_action :set_bookmark, only: [:destroy]
+  before_action :set_bookmark, only: %i[destroy update]
 
   def new
     @bookmark = Bookmark.new
@@ -16,6 +16,10 @@ class BookmarksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @bookmark.update(bookmark_params)
   end
 
   def destroy
@@ -34,6 +38,6 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:bookmark).permit(:comment, :movie_id)
+    params.require(:bookmark).permit(:comment, :movie_id, :rating)
   end
 end

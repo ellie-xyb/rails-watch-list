@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:destroy]
   delete 'lists/:id', to: 'lists#destroy', as: :delete_list
+  post 'bookmarks/:id', to: 'bookmarks#update', as: :update_bookmark
 end

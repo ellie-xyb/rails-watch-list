@@ -17,10 +17,11 @@ export default class extends Controller {
   static targets = ["card"];
   connect() {
     console.log(this.cardTarget);
+    console.log(this.formTarget);
   }
   show(event) {
-    const infos = event.currentTarget.dataset.infos;
-    console.log(infos)
-    this.cardTarget.innerHTML = infos;
+    const comment = event.currentTarget.dataset.comment;
+    const rating = event.currentTarget.dataset.rating;
+    this.cardTarget.innerHTML = comment
   };
 }
