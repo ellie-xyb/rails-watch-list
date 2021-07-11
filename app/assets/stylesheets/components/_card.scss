@@ -36,6 +36,10 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-height: 500px;
+  -moz-box-shadow: inset 0 -10px 10px -10px #000000;
+  -webkit-box-shadow: inset 0 -30px 90px -10px #000000;
+  box-shadow: inset 0 -30px 150px -30px #000000;
 }
 
 .movie-card-img {

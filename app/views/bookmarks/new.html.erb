@@ -8,10 +8,8 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.input :comment, placeholder: 'Recommended by Jenny, has to be good.', as: :text, :input_html => { class: 'test', :cols => 5, :rows => 8 } %>
-        <br>
-        <%= f.association :movie, collection: Movie.all %>
-        <%= f.submit "Add", class: "btn btn-primary" %>
+        <%= f.input :comment, placeholder: 'Enter a comment about the movie', as: :text, :input_html => { class: 'test', :cols => 5, :rows => 8 } %>
+        <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>        <%= f.submit "Add", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

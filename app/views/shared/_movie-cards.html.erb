@@ -4,7 +4,7 @@
       <div class="movie-cards">
         <% @movies.each do |themovie| %>
           <div>
-            <div class="movie-card" data-action="click->movie#show" data-infos="<%= themovie.title %>">
+            <div class="movie-card" data-action="click->movie#show" data-title="<%= themovie.title %>" data-rating="<%= themovie.rating.round %>" data-overview="<%= themovie.overview %>">
               <div class="movie-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= themovie.poster_url %>)">
                   <%= link_to bookmark_path(themovie.bookmark), method: :delete, data: { confirm: 'Are you sure?' } do %>
                     <i class="fas fa-times"></i>
@@ -24,8 +24,7 @@
     </div>
     <div class="col-4">
       <div class="card-reviews-container">
-        <div data-movie-target="card">
-        </div>
+        <h5 data-movie-target="toggle">Choose a movie</h5>
         <div id="rating-bar" class="br-wrapper br-theme-css-stars">
           <select class="bar-rating">
             <option value=""></option>
@@ -35,6 +34,14 @@
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
+        </div>
+        <hr class="card-reviews-container">
+        <div class="card-reviews-container">
+          <h3 data-movie-target="title"></h3>
+          <div style="display: none" data-movie-target="rating">
+            <i class="fas fa-star star-yellow"></i>
+          </div>
+          <small class="card-reviews-container"><em data-movie-target="overview"></em></small>
         </div>
       </div>
     </div>

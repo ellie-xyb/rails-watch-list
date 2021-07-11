@@ -20,8 +20,6 @@ import 'select2';
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-const cities = ["Amsterdam","Bali","Barcelona","Belo Horizonte","Berlin","Bordeaux","Brussels","Buenos Aires","Casablanca","Chengdu","Copenhagen","Kyoto","Lausanne","Lille","Lisbon","London","Lyon","Madrid","Marseille","Melbourne","Mexico","Milan","Montréal","Nantes","Oslo","Paris","Rio de Janeiro","Rennes","Rome","São Paulo","Seoul","Shanghai","Shenzhen","Singapore","Stockholm","Tel Aviv","Tokyo"];
-
 
 document.addEventListener('turbolinks:load', () => {
   $('.bar-rating').barrating({
