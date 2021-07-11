@@ -24,11 +24,6 @@ class ListsController < ApplicationController
     end
   end
 
-  def destroy
-    @list.delete
-    redirect_to lists_path
-  end
-
   private
 
   def find_list
