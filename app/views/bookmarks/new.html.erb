@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 130px;">
   <%= link_to lists_path(@list) do %>
-    <h4 style="color:darkgrey">⇤ <%= @list.name %></h4>
+    <h4 style="color:darkgrey">⇤ <%= @list.name.capitalize %></h4>
   <% end %>
 </div>
 <div class="container" style="margin-top: 70px">
@@ -8,8 +8,9 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.input :comment, placeholder: 'Recommended by Jenny, has to be good.' %>
-        <%= f.association :movie %>
+        <%= f.input :comment, placeholder: 'Recommended by Jenny, has to be good.', as: :text, :input_html => { class: 'test', :cols => 5, :rows => 8 } %>
+        <br>
+        <%= f.association :movie, collection: Movie.all %>
         <%= f.submit "Add", class: "btn btn-primary" %>
       <% end %>
     </div>

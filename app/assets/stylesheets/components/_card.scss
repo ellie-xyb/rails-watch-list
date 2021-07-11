@@ -40,8 +40,8 @@
 
 .movie-card-img {
   background-size: cover;
-  background-position: 10% center;
-  height: 280px;
+  background-position: center 10%;
+  height: 300px;
   display: flex;
   font-size: 24px;
   font-weight: bold;
@@ -97,4 +97,14 @@
   text-align: center;
   padding-top: 7px;
   font-size: 1.4em;
+}
+
+.card-reviews-container {
+  position: sticky;
+  top: 20vh;
+}
+
+#rating-bar {
+  position: sticky;
+  top: 20vh;
 }

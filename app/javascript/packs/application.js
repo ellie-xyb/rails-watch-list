@@ -8,6 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
+import '../controllers/index';
+import $ from 'jquery';
+import 'jquery-bar-rating';
+import 'select2';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -15,3 +19,18 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+const cities = ["Amsterdam","Bali","Barcelona","Belo Horizonte","Berlin","Bordeaux","Brussels","Buenos Aires","Casablanca","Chengdu","Copenhagen","Kyoto","Lausanne","Lille","Lisbon","London","Lyon","Madrid","Marseille","Melbourne","Mexico","Milan","Montréal","Nantes","Oslo","Paris","Rio de Janeiro","Rennes","Rome","São Paulo","Seoul","Shanghai","Shenzhen","Singapore","Stockholm","Tel Aviv","Tokyo"];
+
+
+document.addEventListener('turbolinks:load', () => {
+  $('.bar-rating').barrating({
+    theme: 'css-stars',
+    initialRating: null
+  });
+
+ $('#bookmark_movie_id').select2({
+    selectOnClose: true
+  });
+});
+
