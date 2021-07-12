@@ -1,8 +1,9 @@
 <div class="container mt-5 mb-5" data-controller="movie">
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-7 col-8">
       <div class="movie-cards">
         <% @movies.each do |themovie| %>
+          <div style="display: none" id="heartmark" value="<%= themovie %>"></div>
           <div>
             <div class="movie-card" data-action="click->movie#show" data-title="<%= themovie.title %>" data-rating="<%= themovie.rating %>" data-overview="<%= themovie.overview %>">
               <div class="movie-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= themovie.poster_url %>)">
@@ -22,7 +23,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-sm-5 col-4">
       <div class="card-review-container">
         <h5 data-movie-target="toggle">Choose a movie</h5>
         <div id="rating-bar" class="br-wrapper br-theme-css-stars">
