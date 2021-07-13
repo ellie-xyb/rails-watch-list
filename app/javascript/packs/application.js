@@ -47,8 +47,8 @@ document.addEventListener('turbolinks:load', () => {
   };
   initTyped();
 
-  const fetchmark = (url, rates) => {
-    fetch(url, {
+  const fetchmark = (movieMarkId, rates) => {
+    fetch(`/marks/${movieMarkId}`, {
       body: JSON.stringify({
       rating: rates,
       }),
@@ -58,8 +58,11 @@ document.addEventListener('turbolinks:load', () => {
       },
     })
     .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-  };
+    .then(response => {
+          console.log('Success:', response);
+          document.querySelector(`[data-moviemarkid="${movieMarkId}"]`).setAttribute("data-markrating", rates);
+    });
+  }
 
   const heartMark = document.getElementById('heart-mark');
   const checkMarkId = heartMark.dataset.markid;
@@ -94,7 +97,10 @@ document.addEventListener('turbolinks:load', () => {
           },
         })
         .catch(error => console.error('Error:', error))
-        .then(response => console.log('Success:', response));
+        .then(response => {
+          console.log('Success:', response);
+          document.querySelector(`[data-movieid="${movieId}"]`).setAttribute("data-markrating", rates);
+        });
         toggleHeart.innerHTML = '1';
         heartMark.classList.add('like');
       } else if (checkMarkId != '-1' && toggleValue === '1') {
@@ -103,7 +109,7 @@ document.addEventListener('turbolinks:load', () => {
           const checkMarkId = heartMark.dataset.markid;
           const MarkIdInt = parseInt(checkMarkId, 10);
 
-          fetchmark(`/marks/${MarkIdInt}`, 0);
+          fetchmark(MarkIdInt, 0);
           toggleHeart.innerHTML = 'Normal';
           heartMark.classList.remove('like');
       } else if (checkMarkId != '-1' && toggleHeart.innerHTML === '0') {
@@ -112,7 +118,7 @@ document.addEventListener('turbolinks:load', () => {
           const checkMarkId = heartMark.dataset.markid;
           const MarkIdInt = parseInt(checkMarkId, 10);
 
-          fetchmark(`/marks/${MarkIdInt}`, 1);
+          fetchmark(MarkIdInt, 1);
           toggleHeart.innerHTML = 'I like';
           heartMark.classList.add('like');
       }
