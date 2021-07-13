@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddRatingToBookmark < ActiveRecord::Migration[6.0]
   def change
     add_column :bookmarks, :rating, :integer

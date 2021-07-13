@@ -24,19 +24,19 @@
 require 'open-uri'
 require 'json'
 
-puts "Cleaning up database..."
+puts 'Cleaning up database...'
 Movie.destroy_all
 List.destroy_all
 Bookmark.destroy_all
-puts "Database cleaned"
+puts 'Database cleaned'
 
-url = "http://tmdb.lewagon.com/movie/top_rated"
+url = 'http://tmdb.lewagon.com/movie/top_rated'
 10.times do |i|
   puts "Importing movies from page #{i + 1}"
   movies = JSON.parse(open("#{url}?page=#{i + 1}").read)['results']
   movies.each do |movie|
     puts "Creating #{movie['title']}"
-    base_poster_url = "https://image.tmdb.org/t/p/original"
+    base_poster_url = 'https://image.tmdb.org/t/p/original'
     Movie.create(
       title: movie['title'],
       overview: movie['overview'],
@@ -45,7 +45,7 @@ url = "http://tmdb.lewagon.com/movie/top_rated"
     )
   end
 end
-puts "Movies created"
+puts 'Movies created'
 
 List.create(name: 'Dogs',
             bg_url: 'https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
@@ -59,4 +59,4 @@ List.create(name: 'drama',
             bg_url: 'https://images.unsplash.com/photo-1559781732-eed3e087c660?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 List.create(name: 'action',
             bg_url: 'https://images.unsplash.com/photo-1533105045747-b9d71a0955f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1264&q=80')
-puts "Lists created"
+puts 'Lists created'

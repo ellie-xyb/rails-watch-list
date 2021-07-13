@@ -23,6 +23,7 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to list_path(@listid)
   end
+
   private
 
   def set_list

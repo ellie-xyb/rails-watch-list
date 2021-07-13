@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-sm-7 col-8">
       <div class="movie-cards">
-        <% @movies.each do |themovie| %>
-          <div style="display: none" id="heartmark" value="<%= themovie %>"></div>
+        <% @movies.reverse.each do |themovie| %>
+
           <div>
-            <div class="movie-card" data-action="click->movie#show" data-title="<%= themovie.title %>" data-rating="<%= themovie.rating %>" data-overview="<%= themovie.overview %>">
+            <div class="movie-card" data-action="click->movie#show" data-title="<%= themovie.title %>" data-rating="<%= themovie.rating %>" data-markrating="<%= themovie.mark ? themovie.mark.rating : 0 %>" data-overview="<%= themovie.overview %>" data-movieid="<%= themovie.id %>" data-moviemarkid="<%= themovie.mark ? themovie.mark.id : -1 %>">
               <div class="movie-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= themovie.poster_url %>)">
                   <%= link_to bookmark_path(themovie.bookmark), method: :delete, data: { confirm: 'Are you sure?' } do %>
                     <i class="fas fa-times"></i>
@@ -25,19 +25,17 @@
     </div>
     <div class="col-sm-5 col-4">
       <div class="card-review-container">
-        <h5 data-movie-target="toggle">Choose a movie</h5>
+
+        <div style="display: none" data-movie-target="markbox" id="markpostform" data-listid="<%= @list.id %>">
+          <i class="fas fa-heartbeat d-flex flex-row-reverse" id="heart-mark" data-movie-target="heartmark"></i>
+          <p id="toggle-heart" data-movie-target="toggleheart"></p>
+        </div>
+
+        <h5 data-movie-target="toggle" style="opacity: .9">Choose a movie</h5>
         <div id="rating-bar" class="br-wrapper br-theme-css-stars">
-          <select class="bar-rating">
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
           <div id="review-container">
             <hr>
-            <h3 data-movie-target="title"></h3>
+            <h3 data-movie-target="title" id="movie-title"></h3>
             <div style="display:flex;">
               <i class="fas fa-star star-yellow" style="display: none" data-movie-target="star"></i>
               <p data-movie-target="rating"></p>

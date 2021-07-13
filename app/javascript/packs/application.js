@@ -46,5 +46,53 @@ document.addEventListener('turbolinks:load', () => {
     }
   };
   initTyped();
-});
 
+  const toggleHeart = document.getElementById('toggle-heart');
+  const heartMark = document.getElementById('heart-mark');
+
+  const fetchmark = (url, rates) => {
+    fetch(url, {
+      body: JSON.stringify({
+      rating: rates,
+      }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
+  };
+
+  heartMark.addEventListener('click', ()=> {
+    const heartMark = document.getElementById('heart-mark');
+    const checkMarkId = heartMark.dataset.markid;
+    const MarkIdInt = parseInt(checkMarkId, 10);
+    console.log(MarkIdInt);
+    if (checkMarkId === '-1') {
+      // create mark with rating 0
+      const markpostform = document.getElementById('markpostform');
+      const movieId = parseInt(markpostform.dataset.movieid, 10);
+      fetch(`/movies/${movieId}/marks`, {
+        body: JSON.stringify({
+        movie_id: movieId,
+        }),
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .catch(error => console.error('Error:', error))
+      .then(response => console.log('Success:', response));
+    } else if (checkMarkId != '-1') {
+      let UpdateUrl = `/marks/${MarkIdInt}`;
+      if (toggleHeart.innerHTML === 1) {
+        // update rating = 0
+        fetchmark(UpdateUrl, 0);
+      } else {
+        // update rating = 1
+        fetchmark(UpdateUrl, 1);
+      }
+    }
+  });
+});

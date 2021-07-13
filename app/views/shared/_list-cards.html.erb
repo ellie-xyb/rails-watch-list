@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="cards">
-        <% @lists.each do |list| %>
+        <% @lists.reverse.each do |list| %>
           <%= link_to list_path(list) do %>
             <div>
               <div class="display-card" style="background-image: url(<%= list.bg_url %>)">

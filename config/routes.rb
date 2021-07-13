@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:destroy]
   delete 'lists/:id', to: 'lists#destroy', as: :delete_list
+  resources :movies, only: [] do
+    resources :marks, only: [:create]
+  end
+  post '/marks/:id', to: 'marks#update', as: :mark
 end
