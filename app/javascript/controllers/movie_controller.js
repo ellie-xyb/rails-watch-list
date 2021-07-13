@@ -14,7 +14,7 @@ import { Controller } from 'stimulus';
 // }
 
 export default class extends Controller {
-  static targets = ["title", "overview", "rating", "toggle", "star", "markbox", "heartmark", "toggleheart"];
+  static targets = ["title", "overview", "rating", "toggle", "star", "markbox", "heartmark", "markrating", "toggleheart"];
 
   show(event) {
     this.toggleTarget.style.display = " none";

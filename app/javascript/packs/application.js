@@ -84,7 +84,10 @@ document.addEventListener('turbolinks:load', () => {
       })
       .catch(error => console.error('Error:', error))
       .then(response => console.log('Success:', response));
+
+
     } else if (checkMarkId != '-1') {
+
       let UpdateUrl = `/marks/${MarkIdInt}`;
       if (toggleHeart.innerHTML === 1) {
         // update rating = 0
