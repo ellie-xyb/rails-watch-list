@@ -22,13 +22,14 @@ import Typed from 'typed.js';
 
 
 document.addEventListener('turbolinks:load', () => {
-  $('.bar-rating').barrating({
-    theme: 'css-stars',
-    initialRating: null
-  });
 
  $('#bookmark_movie_id').select2({
     selectOnClose: true
+  });
+
+ $('.bar-rating').barrating({
+    theme: 'css-stars',
+    initialRating: null
   });
 
   const initTyped = () => {
