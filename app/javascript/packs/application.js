@@ -47,9 +47,6 @@ document.addEventListener('turbolinks:load', () => {
   };
   initTyped();
 
-  const toggleHeart = document.getElementById('toggle-heart');
-  const heartMark = document.getElementById('heart-mark');
-
   const fetchmark = (url, rates) => {
     fetch(url, {
       body: JSON.stringify({
@@ -64,38 +61,60 @@ document.addEventListener('turbolinks:load', () => {
     .then(response => console.log('Success:', response));
   };
 
-  heartMark.addEventListener('click', ()=> {
-    const heartMark = document.getElementById('heart-mark');
-    const checkMarkId = heartMark.dataset.markid;
-    const MarkIdInt = parseInt(checkMarkId, 10);
-    console.log(MarkIdInt);
-    if (checkMarkId === '-1') {
-      // create mark with rating 0
-      const markpostform = document.getElementById('markpostform');
-      const movieId = parseInt(markpostform.dataset.movieid, 10);
-      fetch(`/movies/${movieId}/marks`, {
-        body: JSON.stringify({
-        movie_id: movieId,
-        }),
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', response));
+  const heartMark = document.getElementById('heart-mark');
+  const checkMarkId = heartMark.dataset.markid;
+  const MarkIdInt = parseInt(checkMarkId, 10);
+
+  const toggleHeart = document.getElementById('toggle-heart');
+  const toggleValue = toggleHeart.innerHTML;
 
 
-    } else if (checkMarkId != '-1') {
+  if (heartMark != null) {
+    heartMark.addEventListener('click', ()=> {
+      const heartMark = document.getElementById('heart-mark');
+      const checkMarkId = heartMark.dataset.markid;
+      const MarkIdInt = parseInt(checkMarkId, 10);
 
-      let UpdateUrl = `/marks/${MarkIdInt}`;
-      if (toggleHeart.innerHTML === 1) {
-        // update rating = 0
-        fetchmark(UpdateUrl, 0);
-      } else {
-        // update rating = 1
-        fetchmark(UpdateUrl, 1);
+      const toggleHeart = document.getElementById('toggle-heart');
+      const toggleValue = toggleHeart.innerHTML;
+
+      // console.log(MarkIdInt);
+      // console.log(toggleValue);
+      if (checkMarkId === '-1') {
+        // create mark with rating 0
+        const markpostform = document.getElementById('markpostform');
+        const movieId = parseInt(markpostform.dataset.movieid, 10);
+        fetch(`/movies/${movieId}/marks`, {
+          body: JSON.stringify({
+          movie_id: movieId,
+          }),
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response));
+
+      } else if (checkMarkId != '-1' && toggleValue === '1') {
+          // update rating = 0
+          const heartMark = document.getElementById('heart-mark');
+          const checkMarkId = heartMark.dataset.markid;
+          const MarkIdInt = parseInt(checkMarkId, 10);
+
+          fetchmark(`/marks/${MarkIdInt}`, 0);
+          toggleHeart.innerHTML = '0';
+          heartMark.classList.remove('like');
+      } else if (checkMarkId != '-1' && toggleHeart.innerHTML === '0') {
+          // update rating = 1
+          const heartMark = document.getElementById('heart-mark');
+          const checkMarkId = heartMark.dataset.markid;
+          const MarkIdInt = parseInt(checkMarkId, 10);
+
+          fetchmark(`/marks/${MarkIdInt}`, 1);
+          toggleHeart.innerHTML = '1';
+          heartMark.classList.add('like');
       }
-    }
-  });
+    });
+  }
 });

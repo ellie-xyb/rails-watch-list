@@ -13,7 +13,7 @@ class MarksController < ApplicationController
     @mark = Mark.new(mark_create_params)
     @movie = Movie.find(params[:movie_id].to_i)
     @mark.movie = @movie
-    @mark.rating = 0
+    @mark.rating = 1
     @mark.save
   end
 
