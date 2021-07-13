@@ -104,7 +104,7 @@ document.addEventListener('turbolinks:load', () => {
           const MarkIdInt = parseInt(checkMarkId, 10);
 
           fetchmark(`/marks/${MarkIdInt}`, 0);
-          toggleHeart.innerHTML = '0';
+          toggleHeart.innerHTML = 'Normal';
           heartMark.classList.remove('like');
       } else if (checkMarkId != '-1' && toggleHeart.innerHTML === '0') {
           // update rating = 1
@@ -113,7 +113,7 @@ document.addEventListener('turbolinks:load', () => {
           const MarkIdInt = parseInt(checkMarkId, 10);
 
           fetchmark(`/marks/${MarkIdInt}`, 1);
-          toggleHeart.innerHTML = '1';
+          toggleHeart.innerHTML = 'I like';
           heartMark.classList.add('like');
       }
     });
