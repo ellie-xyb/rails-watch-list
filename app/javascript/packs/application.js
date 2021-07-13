@@ -95,7 +95,8 @@ document.addEventListener('turbolinks:load', () => {
         })
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response));
-
+        toggleHeart.innerHTML = '1';
+        heartMark.classList.add('like');
       } else if (checkMarkId != '-1' && toggleValue === '1') {
           // update rating = 0
           const heartMark = document.getElementById('heart-mark');
