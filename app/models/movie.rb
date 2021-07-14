@@ -6,4 +6,5 @@ class Movie < ApplicationRecord
   has_many :bookmarks
   has_one :mark
   has_one :bookmark, -> { joins(:list) }
+  has_one_attached :poster
 end
