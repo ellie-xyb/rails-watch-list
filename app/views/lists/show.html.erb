@@ -1,6 +1,6 @@
-<% bg = @article.photo.attached? ? '<%= cl_image_path @movie.poster.key, height: 350, crop: :fill %>' : '<%= @list.bg_url %>' %>
+<% bg = @list.poster.attached? ? 'cl_image_path @list.poster.key, height: 350, crop: :fill' : @list.bg_url %>
 
-<div class="list-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(bg);">
+<div class="list-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= bg %>);">
   <div class="container">
     <h1 class="mb-3"><%= @list.name.capitalize %></h1>
     <%= link_to "Lists<<", lists_path, class: "btn btn-outline-warning mr-2" %>
