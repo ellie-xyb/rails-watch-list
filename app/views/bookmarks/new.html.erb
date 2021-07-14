@@ -9,7 +9,8 @@
     <div class="col-10">
       <%= simple_form_for [@list, @bookmark] do |f| %>
         <%= f.input :comment, placeholder: 'Enter a comment about the movie', as: :text, :input_html => { class: 'test', :cols => 5, :rows => 8 } %>
-        <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>        <%= f.submit "Add", class: "btn btn-primary" %>
+        <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>
+        <%= f.submit "Add", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
