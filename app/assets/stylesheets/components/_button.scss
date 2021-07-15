@@ -1,3 +1,11 @@
+#back-btn {
+  z-index: 10;
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-size: 2em;
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;

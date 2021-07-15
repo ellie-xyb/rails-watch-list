@@ -6,7 +6,7 @@ class MarksController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[create update]
 
   def index
-    @markids = Mark.where('rating = 1').ids
+    @marks = Mark.where('rating = 1')
   end
 
   def create

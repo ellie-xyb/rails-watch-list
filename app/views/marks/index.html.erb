@@ -1,0 +1,26 @@
+<div class="container" style='padding-top:100px;'>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div class="f-cards">
+        <% @marks.each do |mark| %>
+          <div class="display-card mt-2" style="background-image: url(<%= mark.movie.poster_url %>)">
+            <div class="display-card-info">
+              <h1><strong><%= mark.movie.title %></strong></h1>
+              <i class="fas fa-star star-yellow"></i>
+              <h5><%= mark.movie.rating %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="back-btn">
+      <%= link_to root_path do %>
+        <i class="fas fa-fast-backward"></i>
+      <% end %>
+  </div>
+  </div>
+</div>
+
+
+
+
