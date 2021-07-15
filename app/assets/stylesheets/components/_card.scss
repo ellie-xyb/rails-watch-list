@@ -32,6 +32,35 @@
   opacity: 0.8;
 }
 
+.f-card {
+  background-size: cover;
+  background-position: center;
+  height: 380px;
+  min-width: 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, .3);
+  transition: filter .25s ease-in-out;
+  text-decoration: none;
+  position: relative;
+  &:hover {
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, .3);
+  }
+  &:hover .f-card-info {
+    transform: translatey(-2px);
+    transition: 0.25s ease-in-out;
+  }
+}
+
+.f-card-info h5 {
+  opacity: 0.8;
+}
+
 .movie-card {
   overflow: hidden;
   background: white;

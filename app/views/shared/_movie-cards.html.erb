@@ -3,7 +3,6 @@
     <div class="col-sm-7 col-8">
       <div class="movie-cards">
         <% @movies.reverse.each do |themovie| %>
-
           <div>
             <div class="movie-card" data-action="click->movie#show" data-title="<%= themovie.title %>" data-rating="<%= themovie.rating %>" data-markrating="<%= themovie.mark ? themovie.mark.id ? themovie.mark.rating : 0 : 0 %>" data-overview="<%= themovie.overview %>" data-movieid="<%= themovie.id %>" data-moviemarkid="<%= themovie.mark ? themovie.mark.id : -1 %>">
               <div class="movie-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= themovie.poster_url %>)">

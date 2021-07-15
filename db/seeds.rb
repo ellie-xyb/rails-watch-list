@@ -23,7 +23,7 @@
 
 require 'open-uri'
 require 'json'
-
+Mark.destroy_all
 puts 'Cleaning up database...'
 Movie.destroy_all
 List.destroy_all
