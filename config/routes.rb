@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :marks, only: [:create]
   end
   post '/marks/:id', to: 'marks#update', as: :mark
+  resources :marks, only: [:index]
 end

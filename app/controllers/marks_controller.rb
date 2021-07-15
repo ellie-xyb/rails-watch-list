@@ -5,9 +5,9 @@ class MarksController < ApplicationController
   # disable csrf for rails route
   skip_before_action :verify_authenticity_token, only: %i[create update]
 
-  # def index
-  #   @marks = Mark.all
-  # end
+  def index
+    @markids = Mark.where('rating = 1').ids
+  end
 
   def create
     @mark = Mark.new(mark_create_params)

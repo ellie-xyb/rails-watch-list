@@ -5,7 +5,8 @@
         <% @lists.reverse.each do |list| %>
           <%= link_to list_path(list) do %>
             <div>
-              <div class="display-card" style="background-image: url(<%= list.bg_url %>)">
+              <% bg = list.poster.attached? ? cl_image_path(list.poster.key, height: 350, crop: :fill) : list.bg_url %>
+              <div class="display-card" style="background-image: url('<%= bg %>')">
                 <div class="display-card-info">
                   <h1><strong><%= list.name.capitalize %></strong></h1>
                   <% plural = list.movies.count > 0 ? 'movies' : 'movie' %>
